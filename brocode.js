@@ -1,1 +1,0 @@
-const kerim = 'kerim'
