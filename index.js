@@ -1,12 +1,339 @@
+// #17 And or logical operators && ||
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #16 switches
+
+// switch - statement that examines a value for 
+// a match agains many case clauses.
+// More efficient that many "else if" statements
+
+
+// 1. nacin
+
+
+// let grade = "A";
+
+// if (grade == "A") {
+//   console.log("You did great!");
+// }
+// else if (grade == "B") {
+//   console.log("You did good!");
+// }
+// else if (grade == "C") {
+//   console.log("You did okay!");
+// }
+// else if (grade == "D"){
+//   console.log("You passed... barely!");
+// }
+// else if (grade == "F"){
+//   console.log("You failed");
+// }
+// else {
+//   console.log(grade, "is not a letter grade!");
+// }
+
+
+// switch(variable) -> case -> do something
+
+
+// 2. nacin
+
+// let grade = "A";
+
+// switch(grade) {
+//   case "A":
+//     console.log("You did great!");
+//     break;
+//   case "B":
+//     console.log("You did good!");
+//     break;
+//   case "C":
+//     console.log("You did okay!");
+//     break;
+//   case "D":
+//     console.log("You passed... barely!");
+//     break;
+//   case "F":
+//     console.log("You failed!");
+//     break;
+//   default:
+//     console.log(grade, "is not a letter grade!");
+// }
+
+
+
+// 3. nacin
+
+// let grade = 90;
+
+// switch(true) {
+//   case grade >= 90:
+//     console.log("You did great!");
+//     break;
+//   case grade >= 80:
+//     console.log("You did good!");
+//     break;
+//   case grade >= 70:
+//     console.log("You did okay!");
+//     break;
+//   case grade >= 60:
+//     console.log("You passed... barely!");
+//     break;
+//   case grade >=50 :
+//     console.log("You failed!");
+//     break;
+//   default:
+//     console.log(grade, "is not a letter grade!");
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #15 checked property
+
+
+// 1. nacin
+// document.getElementById("myButton").onclick = function() {
+//   if(document.getElementById("myCheckBox").checked) {
+//     console.log("You are subscribed!");
+//   } 
+//   else {
+//     console.log("You are not subscribed!")
+//   }
+// }
+
+
+// 2. nacin
+// document.getElementById("myButton").onclick = function() {
+
+//   const myCheckBox = document.getElementById("myCheckBox");
+
+//   const visaBtn = document.getElementById("visaBtn");
+//   const mastercardBtn = document.getElementById("mastercardBtn");
+//   const paypalBtn = document.getElementById("paypalBtn");
+
+//   if(myCheckBox.checked) {
+//     console.log("You are subscribed!");
+//   } 
+//   else {
+//     console.log("You are not subscribed!")
+//   }
+
+//   if(visaBtn.checked){
+//     console.log("You are paying with a Visa !");
+//   }
+//   else if(mastercardBtn.checked){
+//     console.log("You are paying with a MasterCard !");
+//   }
+//   else if (paypalBtn.checked) {
+//     console.log("You are paying with Paypal !");
+//   }
+//   else {
+//     console.log("You must select a payment type!");
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #14 if statements
+
+// A basic form of decision making if a condition is true, then do something
+// If not, then don't do it !
+// if -> condition -> do something
+
+
+
+// 1. primjer
+
+// let age = 80;
+
+// if (age >= 65) {
+//   console.log("You are a senior citizen.");
+// }
+// else if ( age >= 18) {
+//   console.log("You are an adult.");  
+// } 
+// else if (age < 0) {
+//   console.log("You haven't been born yet.");
+// }
+// else {
+//   console.log("You are a child.");
+// }
+
+
+
+// 2. primjer
+
+// let online = true;
+
+// if(online) {
+//   console.log("You are online!");
+// }
+// else {
+//   console.log("You are offline!");
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #13 method chaining
+
+// method chaining = calling one method after another
+// in one continuous line of code
+
+// let userName = "bro";
+
+// let letter = userName.charAt(0);
+// letter = letter.toUpperCase();
+
+// let letter = userName.charAt(0).toUpperCase();
+// dvije ili vise metoda u jednom redu - jednoj liniji koda
+
+// console.log(letter);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #12 string slicing
+
+// slice() extracts a section of a string and 
+// return it as a new string, without modifying
+// the original string
+
+// let fullName = "Bro Code";
+// let firstName;
+// let lastName;
+
+// firstName = fullName.slice(0, 3); // pocetni indeks i kranji indeks
+// console.log(firstName); // u ovom primjeru pisat ce Bro u konzoli
+// lastName = fullName.slice(4); // tring do 4. mjesta ce biti izbrisan 
+// console.log(lastName); // u ovom primjeru pisat ce Code u konzoli
+
+// firstName = fullName.slice(0, fullName.indexOf(" ") + 1); // obrisat ce se tekst iza praznog prostora, u konzoli ce pisati Bro
+// lastName = fullName.slice(fullName.indexOf(" ") + 1); // obrisat ce tekst prije praznog prostora, u konzoli ce pisati Code
+
+// console.log(firstName);
+// console.log(lastName);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #11 useful string methods
 
+// let userName = "Bro Code";
+// let phoneNumber = "123-456-7890";
+
+// let userLength = userName.length; // kolika je duzina naseg stringa
+// console.log(userLength); 
+
+// console.log(userName.length);
+// console.log(userName.charAt(0)); // pozicija slova us stringu
+// console.log(userName.indexOf("o")); // gdje se nalazi slovo o u stringu
+// console.log(userName.lastIndexOf("o")); // zadnje mjesto u stringu gdje se nalazi slovo o
+// userName = userName.trim(); // uklanja prazan prostor u stringu
+
+// userName = userName.toUpperCase();
+// console.log(userName);
+
+// userName = userName.toLowerCase();
+// console.log(userName);
 
 
-
-
-
-
-
+// phoneNumber = phoneNumber.replaceAll("-", "/"); //dodaje / umjesto -
+// console.log(phoneNumber);
 
 
 
@@ -64,6 +391,7 @@
 
 
 
+
 // #9 counter program
 
 // let count = 0;
@@ -82,6 +410,7 @@
 //   count +=1;
 //   document.getElementById("countLabel").innerHTML = count;
 // }
+
 
 
 
@@ -335,6 +664,7 @@
 
 
 
+
 // #3 Arithmetic expressions 
 
 /* arithmetic expression is a combination of... 
@@ -384,6 +714,7 @@
 
 
 
+
 // #2 Variables
 
 // A variable is a container for storing data
@@ -419,6 +750,7 @@
 // document.getElementById("p1").innerHTML = "Hello " + firstName;
 // document.getElementById("p2").innerHTML = "You are " + age + "years old";
 // document.getElementById("p3").innerHTML = "Enrolled: " + student;
+
 
 
 
