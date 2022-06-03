@@ -1,6 +1,256 @@
+// #23 nested loops
+
+// nested loop - a loop inside of another loop
+
+// for (let i = 1; i <= 2; i++) { // koliko puta ce se petlja ponoviti unutar jedne petlje
+//   for (let j = 1; j <= 3; j++) {
+//      console.log(j);
+//   } 
+// }
+
+// let symbol = window.prompt("Enter a symbol to use");
+// let rows = window.prompt("Enter # of rows");
+// let columns = window.prompt("Enter # of columns");
+
+// for (let i = 1; i <= rows; i++) { 
+//   for (let j = 1; j <= columns; j++) {
+//      document.getElementById("myRectangle").innerHTML += symbol;
+//   } 
+//   document.getElementById("myRectangle").innerHTML += "<br>";
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #22 break and continue statements
+
+// break = breaks out of a loop entirely
+// continue = skip an iteration of a loop
+
+
+// for (let i = 1; i <= 20; i+=1){
+//   if( i == 13) {
+//     break; // prekida petlju
+//   }
+//   console.log(i);
+// }
+
+
+// for (let i = 1; i <= 20; i+=1){
+//   if( i == 13) {
+//     continue; // petlja se prekida kod te vrijednosti i nastavlja dalje
+//   }
+//   console.log(i);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #21 foor loops
+
+// repeat some code a certain amount of times
+// pocetna vrijednost ; krajnja vrijednost ; inkrement vrijednosti
+
+// for (let counter = 1; counter <= 10; counter+=1) {
+//   console.log(counter);
+// }
+
+// for (let i = 1; i <= 10; i+=1) {
+//   console.log(i);
+// }
+
+// for (let i = 10; i > 0; i-=1) {
+//   console.log(i);
+// }
+
+// console.log("Happy New Year !");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #20 do while loops
+
+// do something,
+// then check the condition, 
+// repeat if condition is true
+
+// do somethin -> while condition  
+
+// let userName;
+
+// do {
+//   userName = window.prompt("Enter you name");
+// } while (userName == " ")
+
+// console.log("Hello", userName);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #19 while loops 
+
+// repeat some code while some condition is true
+// potentially infinite
+
+// let userName = "";
+
+// while(userName == "" || userName == null) {
+//   userName = window.prompt("Enter your name");
+// }
+
+// console.log("Hello", userName);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #18  ! NOT logical operator
+// typically used to reverse a condition's boolean value
+// true -> false  false -> true
+
+
+// let temp = 15;
+// if (temp > 0) {
+//   console.log("It's warm outside.");
+// }
+// else {
+//   console.log("It's cold outside.");
+// }
+
+
+
+// let temp = 15;
+// let sunny = true;
+
+// if (!(temp > 0)) { // ako uslov nije tacan ucini nesta
+//   console.log("It's cold outside.");
+// }
+// else {
+//   console.log("It's warm outside.");
+// }
+
+// if(!sunny) {
+//   console.log("It's cloudy outside");
+// } 
+// else {
+//   console.log("It's sunny outside");
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #17 And or logical operators && ||
 
+// Gives us the ability to check more than 1 condition concurrently
+// && AND (Both conditions must be true)
+// || OR (Either condition can be true)
 
+
+// let temp = 20;
+
+// if (temp > 0 && temp < 30 ) {
+//   console.log("The weather is good!")
+// }
+// else {
+//   console.log("The weather is bad!");
+// }
+
+
+// let temp = 10;
+
+// if (temp <= 0 || temp >= 30) {
+//   console.log("The weather is bad!");
+// }
+// else {
+//   console.log("The weather is good!");
+// }
+
+
+// let temp = 15;
+// let sunny = true;
+
+// if(temp > 0 && temp < 30 && sunny) {
+//   console.log("The weather is good!");
+// }
+// else {
+//   console.log("The weather is bad!");
+// }
 
 
 
@@ -104,6 +354,7 @@
 //   default:
 //     console.log(grade, "is not a letter grade!");
 // }
+
 
 
 
