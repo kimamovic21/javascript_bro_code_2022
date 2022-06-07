@@ -1,3 +1,329 @@
+// #29 toLocaleString()
+
+// returns a string with a language sensitive representation
+// of this number
+
+// number.toLocaleString(locale, {otions});
+
+// 'locale' - specity that language
+//  (undefined - default set in browser)
+// 'options' - object with formatting options
+
+
+// 1. primjer
+
+// let myNum = 123456.789;
+
+// myNum = myNum.toLocaleString("en-US"); // US English
+// myNum = myNum.toLocaleString("hi-IN"); // hindi India
+// myNum = myNum.toLocaleString("de-DE"); // standard German
+
+// myNum = myNum.toLocaleString("en-US", {style: "currency", currency: "USD"});
+// myNum = myNum.toLocaleString("hi-IN", {style: "currency", currency: "INR"});
+// myNum = myNum.toLocaleString("de-DE", {style: "currency", currency: "EUR"});
+
+
+
+// 2. primjer
+
+// let myNum = 10;
+
+// myNum = myNum.toLocaleString(undefined, {style:"percent"});
+
+// console.log(myNum);
+
+
+
+// 3. primjer
+
+// let myNum = 100;
+
+// myNum = myNum.toLocaleString(undefined, {style: "unit", unit: "celsius"});
+
+// console.log(myNum);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #28 Template literals 
+
+// delimited with (`)
+// instead of double or signle quotes
+// allows embedded variables and expressions
+
+// let userName = 'Kerim';
+// let items = 3;
+// let total = 75;
+
+// console.log("Hello", userName);
+// console.log("You have", items, "items in you cart");
+// console.log("Your total is $", total);
+
+// console.log(`Hello ${userName}`);
+// console.log(`You have ${items} in you cart`);
+// console.log(`Your total is $${total}`);
+
+// let text = 
+// `Hello ${userName}. <br>
+// You have ${items} in you cart. <br>
+// Your total is $${total}`;
+
+// console.log(text);
+
+// document.getElementById("myLabel").innerHTML = text;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #27 var vs let
+
+// variable scope - where a variable is accessible
+
+// let = variables are limited to block scope {}
+// var = variables are limited to a function() {}
+
+// global variable = is declared outside any function
+// (if global, var will CHANGE browser's window properties)
+
+
+// 1. primjer
+
+// for (let i = 1; i <=3; i+=1) {
+//   // console.log(i); // i je definisano
+// }
+
+// console.log(i); // i nije definisano
+
+
+// 2. primjer
+
+// let name = 'Bro'; // global variable
+
+// doSomething();
+
+// function doSomething() {
+//   for (var i = 1; i <=3; i+=1) {
+//     // console.log(i); 
+//   }
+// }
+
+// ovaj dio sam ubacio u funkciju iznad
+// for (var i = 1; i <=3; i+=1) {
+//   // console.log(i); 
+// }
+
+// console.log(i);
+
+
+// 3. primjer
+
+// var name = "Bro"; // ukucati window u konzoli pretrazivaca
+// var moze utjecati na izmjenu default vrijednost pretrazivaca
+// let name = "Bro";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #26 ternary operator
+
+// shortcut for an 'if/else statement'
+// takes 3 operands: 
+// 1. a condition with ?
+// 2. expression if true :
+// 3. expression if false
+
+// condition ? expression(true) : expression(false)
+
+
+// 1. primjer
+
+// let adult = checkAge(21);
+// console.log(adult);
+
+// function checkAge(age) {
+//   if ( age >= 18) {
+//     return true;
+//   }
+//   else {
+//     return false;
+//   }
+// }
+
+
+// 2. primjer
+
+// let adult = checkAge(21);
+// console.log(adult);
+
+// function checkAge() {
+//   return age >= 18 ? true : false;
+// }
+
+
+// 3. primjer
+
+// checkWinner(true);
+
+// function checkWinner(win) {
+//   win ? console.log('You win!') : console.log('You lose');
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #25 return statement
+
+//returns a value back to the place where you invoked a function
+
+
+// let area;
+// let width;
+// let height;
+
+// width = window.prompt("Enter width");
+// height = window.prompt("Enter height");
+
+// area = getArea(width, height);
+
+// console.log("The area is:", area);
+
+// function getArea(width, height) {
+//     let result = width * height;
+//     // return width * height;
+//     return result;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #24 functions ()
+
+// Define code once, and use it many times
+// To perform some code, call the function name
+
+
+// 1. primjer
+
+// let userName = "Bro";
+// let age = 21;
+
+// function happyBirthday() {
+//   console.log("Happy birthday to you!");
+//   console.log("Happy birthday to you!");
+//   console.log("Happy birthday dear", userName);
+//   console.log("Happy birthday to you!");
+//   console.log("You are", age, "years old.");
+// }
+
+// happyBirthday(); // invoke function
+// happyBirthday();
+// happyBirthday();
+
+
+
+// 2. primjer
+
+// startProgram();
+
+// function startProgram() {
+//   let userName = "Bro";
+//   let age = 21;
+//   happyBirthday(userName, age); // arguments
+// }
+
+// function happyBirthday(userName, age) { // parameters
+//   console.log("Happy birthday to you!");
+//   console.log("Happy birthday to you!");
+//   console.log("Happy birthday dear", userName);
+//   console.log("Happy birthday to you!");
+//   console.log("You are", age, "years old.");
+// }
+
+// raspored argumenata i parametara je bitan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #23 nested loops
 
 // nested loop - a loop inside of another loop
