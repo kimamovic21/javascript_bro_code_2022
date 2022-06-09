@@ -1,3 +1,646 @@
+// #44  function expressions
+
+// function without a name (anonymous function)
+// avoid pulluting the global scope with names
+// write ih, then forget about it
+
+
+// 1. primjer
+
+// function sayHello(){
+//   console.log("Hello!");
+// }
+
+// sayHello();
+
+
+
+// 2. primjer
+
+// const greeting = function() {
+//   console.log("Hello");
+// }
+
+// greeting();
+
+
+
+
+// 3. primjer
+
+// let count = 0
+
+// function increaseCount() {
+//   count+=1;
+//   document.getElementById("myLabel").innerHTML = count;
+// }
+
+// function decreaseCount() {
+//   count-=1;
+//   document.getElementById("myLabel").innerHTML = count;
+// }
+
+
+
+
+// 4. primjer
+
+// let count = 0;
+
+// document.getElementById("increaseButton").onclick = function() {
+//   count+=1;
+//   document.getElementById("myLabel").innerHTML = count;
+// }
+
+// document.getElementById("decreaseButton").onclick = function() {
+//   count-=1;
+//   document.getElementById("myLabel").innerHTML = count;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #43 sort an array of numbers
+
+// let grades = [100, 50, 90, 60, 80, 70];
+
+// grades = grades.sort(descendingSort);
+// grades = grades.sort(ascendingOrder);
+
+// grades.forEach(print);
+
+// function descendingSort(x, y) {
+//   return y - x;
+// }
+
+// function ascendingOrder(x, y) {
+//   return x - y;
+// }
+
+// function print(element) {
+//   console.log(element);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #42 array.reduce()
+
+// reduces an array to a single value
+
+// let prices = [5, 10 ,15, 20, 25, 30];
+// let total = prices.reduce(checkOut);
+
+// console.log(`The total is: $${total}`);
+
+// function checkOut(total, element) {
+//   return total + element;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #41 array.filter()
+
+// creates a new array with all elements that pass the
+// test provided by a function
+
+
+// let ages = [18, 16, 21, 17, 19, 30];
+// let adults = ages.filter(checkAge);
+
+// adults.forEach(print);
+
+// function checkAge(element) {
+//   return element >= 18;
+// }
+
+// function print(element) {
+//   console.log(element);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #40 array.map()
+
+// executes a provided callback function once for each
+// array element and creates a new array
+
+// let numbers = [1, 2, 3, 4, 5];
+// let squares = numbers.map(square);
+// let cubes = numbers.map(cube)
+
+// squares.forEach(print);
+// cubes.forEach(print);
+
+// function square(element) {
+//   return Math.pow(element, 2);
+// }
+
+// function cube(element) {
+//   return Math.pow(element, 3);
+// }
+
+// function print(element) {
+//   console.log(element);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #39 arrays.forEach()
+
+// executes a provided callback function once for 
+// each array element
+
+
+// let students = ["spongebob", "patrick", "squidward"];
+// students.forEach(capitalize);
+
+// students.forEach(print);
+
+// function capitalize(element, index, array) {
+//    array[index] = element[0].toUpperCase() + element.substring(1);
+// }
+
+// console.log(students[0]);
+
+// function print(element) {
+//     console.log(element);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #38 callback 
+
+// a function passed as an argument to another function
+// Ensures that a function is not going to run before a
+// task is completed.
+// Helps us develop asynchronous code.
+// (When one function has to wait for another function)
+// that helps us avoid errors and potential problems
+// example: wait for a file to load
+
+
+// 1. primjer
+
+// let total = sum(2,3);
+// displayConsole(total);
+// displayDOM(total);
+
+// function sum(x, y) {
+//   let result = x + y;
+//   return result;
+// }
+
+// function displayConsole(output) {
+//   console.log(output);
+// }
+
+// function displayDOM(output) {
+//   document.getElementById("myLabel").innerHTML = output;
+// }
+
+
+
+// 2. primjer
+
+// sum(2, 3, displayConsole);
+// sum(2, 3, displayDOM);
+
+
+// function sum(x, y, callBack) { // mozemo staviti i drugo ime parametra callBack
+//   let result = x + y;
+//   callBack(result);
+// }
+
+// function displayConsole(output) {
+//   console.log(output);
+// }
+
+// function displayDOM(output) {
+//   document.getElementById("myLabel").innerHTML = output;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #37 rest parameters
+
+// represents an indefinite number of parameters
+// (packs arguments into an array)
+
+
+// 1. primjer
+
+// let a = 1;
+// let b = 2;
+// let c = 3;
+// let d = 4;
+// let e = 5;
+
+// console.log(sum1(a, b));
+// console.log(sum2(a, b, c));
+// console.log(sum3(a, b, c ,d));
+
+// function sum1(a, b) {
+//   return a + b;
+// }
+
+// function sum2(a, b, c) {
+//   return a + b + c;
+// }
+
+// function sum3(a, b, c, d) {
+//   return a + b + c + d;
+// }
+
+
+// 2. primjer
+
+
+// let a = 1;
+// let b = 2;
+// let c = 3;
+// let d = 4;
+// let e = 5;
+
+// console.log(sum(a, b, c, d, e));
+
+// function sum(...numbers) { // ovdje mozemo dodati sum(x, y, ...numbers) respektivno
+//   let total = 0;
+//   for (let number of numbers) {
+//     total += number;
+//   }
+//   return total;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #36 spread operator
+
+// allows an iterable such as an array or string to be
+// expanded in places where zero or more arguments are expected 
+// (unpacks the elements)
+
+
+// 1. primjer
+
+// let userName = "Bro Code";
+// let numbers = [1,2,3,4,5,6,7,8,9];
+
+// console.log(numbers);
+// console.log(...numbers);
+// console.log(...userName);
+
+
+
+// 2. primjer
+
+// let numbers = [0,1,2,3,4,5,6,7,8,9,10];
+
+// let maximum = Math.max(numbers);
+// let maximum = Math.max(...numbers);
+// console.log(maximum);
+
+
+
+
+// 3. primjer
+
+// let class1 = ["SpongeBob", "Patrick", "Sandy"];
+// let class2 = ["Squidward", "Mr.Krabs", "Plankton"];
+
+// console.log(class1);
+// console.log(class2);
+
+// class1.push(class2);
+// class1.push(...class2);
+
+// console.log(...class1);
+// console.log(...class2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #35 2D arrays 
+
+// An array of arrays
+
+// let fruits     = ["apple", "oranges", "bananas"];
+// let vegetables = ["carrots", "onions", "potatoes"];
+// let meats      = ["eggs", "chicken", "fish"];
+
+// let groceryList = [fruits, vegetables, meats];
+
+// groceryList[0][0] = "mangoes"; // prvi indeks je red a drugi indeks je kolona
+// groceryList[0][2] = "kiwies";
+// groceryList[2][0] = "steak";
+// groceryList[2][2] = "steak";
+
+// for(let list of groceryList) {
+//   for(let food of list) {
+//     console.log(food);
+//   }
+// }
+
+// console.log(list);
+// console.log(groceryList);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #34 sort an array of strings
+
+// let fruits = ["banana", "apple", "orange", "mango"];
+
+// fruits = fruits.sort(); // poredani po engleskom alfabetu
+// fruits = fruits.sort().reverse(); // poredani otpozada po engleskom alfabetu
+
+// for (let fruit of fruits) {
+//   console.log(fruit);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #33 loop through an array
+
+// let prices = [5, 10, 15, 20, 25];
+
+// for (let i = 0; i < prices.length; i+=1) {
+//   console.log(prices[i]);
+// }
+
+
+// for (let i = prices.length - 1; i >= 0; i-=1) {
+//   console.log(prices[i]);
+// }
+
+
+// for (let i of prices) {
+//   console.log(i);
+// }
+
+
+// for (let price of prices) { // ovo je vise deskriptivno nego prethodni primjer
+//   console.log(price);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #32 arrays
+
+// think of it as a variable that can store multiple values
+
+
+
+// 1. primjer
+
+// let fruits = ["apple", "orange", "banana"];
+
+// console.log(fruits);
+// console.log(fruits[0]);
+
+
+
+
+// 2. primjer
+
+// let fruits = ["apple", "orange", "banana"];
+
+// fruits[0] = "coconut"; // ako hocemo da promjenimo neku stavku u nizu
+
+// console.log(fruits);
+
+
+
+
+// 3. primjer
+
+// let fruits = ["apple", "orange", "banana"];
+
+// fruits.push("lemon");    // add an element
+// fruits.pop();            // removes last element
+// fruits.unshift("mango"); // add element to beginning
+// fruits.shift();          // removes element from beginning
+
+// let length = fruits.length;
+// let index = fruits.indexOf("apple");
+// let indexKiwi = fruits.indexOf("kiwi");
+
+// console.log(fruits);
+// console.log(length);
+// console.log(index);
+// console.log(indexKiwi); // negativan broj zato sto ne postoji u nizu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #31 temperature conversion program
 
 
