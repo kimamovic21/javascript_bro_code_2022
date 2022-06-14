@@ -1,3 +1,265 @@
+// #49 object 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #48 maps
+
+// Map - object that holds key-value pairs of any
+// data type
+
+
+
+// 2. primjer
+
+// const store = new Map([
+//   ["t-shirt", 20],
+//   ["jeans", 30],
+//   ["socks", 10],
+//   ["underwear", 50]  
+// ]);
+
+// store.get("t-shirt")
+// store.set("hat", 40);
+// store.delete("hat");
+// console.log(store.has("hat"));
+// console.log(store.size);
+
+// store.forEach((value, key) => console.log(`${key} $${value}`));
+
+
+
+// 1. primjer
+
+// const store = new Map([
+//   ["t-shirt", 20],
+//   ["jeans", 30],
+//   ["socks", 10],
+//   ["underwear", 50]  
+// ]);
+
+// let shoppingCart = 0;
+// shoppingCart += store.get("t-shirt");
+// shoppingCart += store.get("underwear");
+// console.log(shoppingCart);
+
+// store.forEach((value, key) => console.log(`${key} $${value}`));
+
+
+
+
+
+
+
+
+
+
+
+// #47 nested functions
+
+// functions inside other functions
+// outer functions have access to inner functions
+// inner functions are "hidden" from outside
+// used in closures(future video topic)
+
+
+// 2. primjer
+
+// let userName = "Bro";
+// let userInbox = 0;
+
+// login();
+
+// function login() {
+//   displayUserName();
+//   displayUserInbox();
+
+//   function displayUserName() {
+//     console.log(`Welcome: ${userName}`);
+//   }
+  
+//   function displayUserInbox() {
+//     console.log(`You have ${userInbox} new messages`)
+//   }
+// }
+
+
+
+
+// 1. primjer
+
+// let userName = "Bro";
+// let userInbox = 0;
+
+// displayUserName();
+// displayUserInbox();
+
+// function login() {
+//   displayUserName();
+//   displayUserInbox();
+// }
+
+// function displayUserName() {
+//   console.log(`Welcome: ${userName}`);
+// }
+
+// function displayUserInbox() {
+//   console.log(`You have ${userInbox} new messages`)
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #46 shuffle an array
+
+// let cards = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+
+// shuffle(cards);
+
+// // console.log(cards);
+// cards.forEach(card => console.log(card));
+
+// function shuffle(array) {
+//   let currentIndex = array.length;
+//   while(currentIndex != 0) {
+//     let randomIndex = Math.floor(Math.random() * array.length )
+//     currentIndex-=1;
+//     let temp = array[currentIndex];
+//     array[currentIndex] = array[randomIndex];
+//     array[randomIndex] = temp;
+//   }
+//   return array;
+// }
+
+
+
+
+
+
+
+
+
+
+
+// #45 arrow function expressions =>
+
+// compact alternative to a traditional function expression
+
+
+
+// 5. primjer
+
+// let grades = [100, 50, 90, 60, 80, 70];
+
+// grades.sort((x, y) => y - x);
+// grades.forEach((element) => console.log(element));
+
+
+
+
+
+// 4. primjer
+
+// let grades = [100, 50, 90, 60, 80, 70];
+
+// grades.sort(descending);
+// grades.forEach(print);
+
+// function descending(x,y) {
+//   return y - x;
+// }
+
+// function print(element) {
+//   console.log(element);
+// }
+
+
+
+
+
+
+// 3. primjer
+
+// const percent = (x,y) => x/y*100;
+
+// console.log(`${percent(45, 50)}%`);
+
+
+
+
+
+
+// 2.primjer
+
+// const greeting = (userName) => {
+//   console.log(`hello ${userName}`);
+// }
+
+// greeting("Bro");
+
+
+
+
+
+// 1. primjer
+
+// const greeting = function(userName) {
+//   console.log(`hello ${userName}`);
+// }
+
+// greeting("Bro");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #44  function expressions
 
 // function without a name (anonymous function)
