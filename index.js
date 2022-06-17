@@ -1,4 +1,855 @@
+// #59 anonymous objects 
+
+// anonymous objects - objects without a name
+// not directy referenced
+// less syntsx. No need for unique names
+
+
+// 2. primjer
+
+// class Card {
+//   constructor(value, suit){
+//     this.value = value;
+//     this.suit = suit;
+//   }
+// }
+
+// let cards = [
+//              new Card("A", "Hearts"),
+//              new Card("A", "Spades"),
+//              new Card("A", "Diamonds"),
+//              new Card("A", "Clubs"),
+//              new Card("2", "Hearts"),
+//              new Card("2", "Spades"),
+//              new Card("2", "Diamonds"),
+//              new Card("2", "Clubs")
+//              ];
+
+// cards.forEach(card => console.log(`${card.value} ${card.suit}`))
+
+// console.log(cards[0].value + cards[0].suit);
+
+
+
+
+// 1. primjer
+
+// class Card {
+//   constructor(value, suit){
+//     this.value = value;
+//     this.suit = suit;
+//   }
+// }
+
+// let card1 = new Card("A", "Hearts");
+// let card2 = new Card("A", "Spades");
+// let card3 = new Card("A", "Diamonds");
+// let card4 = new Card("A", "Clubs");
+
+// let card5 = new Card("2", "Hearts");
+// let card6 = new Card("2", "Spades");
+// let card7 = new Card("2", "Diamonds");
+// let card8 = new Card("2", "Clubs");
+
+// let cards = [card1, card2, card3, card4, card5, card6, card7, card8];
+
+// console.log(card1.value + card1.suit);
+// console.log(cards[0].value + cards[0].suit);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #58 array of objects
+
+
+// 2. primjer
+
+// class Car {
+//   constructor(model, year, color){
+//     this.model = model;
+//     this.year = year;
+//     this.color = color;
+//   }
+
+//   drive(){
+//     console.log(`You drive the ${this.model}.`);
+//   }
+// }
+
+// const car1 = new Car("Mustang", 2023, "red");
+// const car2 = new Car("Corvette", 2024, "blue");
+// const car3 = new Car("Lambo", 2022, "yellow");
+// const car4 = new Car("Ferrari", 2025, "white");
+
+// const cars = [car1, car2, car3, car4];
+
+// startRace(cars);
+
+// function startRace(cars) {
+//   for(const car of cars) {
+//     car.drive();
+//   }
+// }
+
+
+
+
+// 1. primjer
+
+// class Car {
+//   constructor(model, year, color){
+//     this.model = model;
+//     this.year = year;
+//     this.color = color;
+//   }
+
+//   drive(){
+//     console.log(`You drive the ${this.model}.`);
+//   }
+// }
+
+// const car1 = new Car("Mustang", 2023, "red");
+// const car2 = new Car("Corvette", 2024, "blue");
+// const car3 = new Car("Lambo", 2022, "yellow");
+
+// const cars = [car1, car2, car3];
+
+// console.log(cars);
+// console.log(cars[0]);
+// console.log(cars[0].model);
+// console.log(cars[1].model);
+// console.log(cars[2].model);
+
+// cars[0].drive();
+// cars[1].drive();
+// cars[2].drive();
+
+
+
+
+
+
+
+
+
+
+
+
+// #57 objects as arguments
+
+// 2. primjer
+
+// class Car {
+//   constructor(model, year, color){
+//     this.model = model;
+//     this.year = year;
+//     this.color = color;
+//   }
+// }
+
+// const car1 = new Car("Mustang", 2023, "red");
+// const car2 = new Car("Corvette", 2024, "blue");
+// const car3 = new Car("Lambo", 2022, "yellow");
+
+// changeColor(car3, "gold");
+// displayInfo(car3);
+
+// function displayInfo(car) {
+//   console.log(car.model);
+//   console.log(car.year);
+//   console.log(car.color);
+// }
+
+// function changeColor(car, color){
+//   car.color = color;
+// }
+
+
+
+
+
+// 1. primjer
+
+// class Car {
+//   constructor(model, year, color){
+//     this.model = model;
+//     this.year = year;
+//     this.color = color;
+//   }
+// }
+
+// const car1 = new Car("Mustang", 2023, "red");
+// const car2 = new Car("Corvette", 2024, "blue");
+// const car3 = new Car("Lambo", 2022, "yellow");
+
+// displayInfo(car1);
+
+// function displayInfo(car) {
+//   console.log(car.model);
+//   console.log(car.year);
+//   console.log(car.color);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #56 getters and setters 
+
+// get - binds an object property to a function
+// when that property is accessed
+
+// set - binds an object property to a function
+// when that property is assigned a value
+
+
+// 3. primjer
+
+// class Car {
+//   constructor(power) {
+//     this._gas = 25;
+//     this._power = power;
+//   }
+//   get power() {
+//     return `${this._power}hp`;
+//   }
+//   get gas() {
+//     return `${this._gas}L (${this._gas / 50 * 100}%)`;
+//   }
+//   set gas(value) {
+//     if (value > 50){
+//       value = 50;
+//     }
+//     else if (value < 0) {
+//       value = 0;
+//     }
+//     this._gas = value;
+//   }
+// }
+
+// let car = new Car(400);
+
+// car.gas = 10000000;
+
+// console.log(car.power);
+// console.log(car.gas);
+
+
+
+
+
+// 2. primjer
+
+// ._ - protected property
+
+// class Car {
+//   constructor(power) {
+//     this._gas = 25;
+//     this._power = power;
+//   }
+//   get power() {
+//     return `${this._power}hp`;
+//   }
+//   get gas() {
+//     return `${this._gas}L (${this._gas / 50 * 100}%)`;
+//   }
+// }
+
+// let car = new Car(400);
+
+// car.power = 100000000;
+
+// console.log(car.power);
+// console.log(car.gas);
+
+
+
+
+
+// 1. primjer
+
+// class Car {
+//   constructor(power) {
+//     this.power = power;
+//   }
+// }
+
+// let car = new Car(400);
+
+// console.log(car.power + "hp");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #55 super
+
+// super - refers to the parent class
+// commonly used to invoke constructor of a parent class
+
+
+// class Animal {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+// }
+
+// class Rabbit extends Animal {
+//   constructor(name, age, runSpeed) {
+//     super(name, age);
+//     this.runSpeed = runSpeed
+//   }
+// }
+
+// class Fish extends Animal {
+//   constructor(name, age, swimSpeed) {
+//     super(name, age);
+//     this.swimSpeed = swimSpeed
+//   }
+// }
+
+// class Hawk extends Animal {
+//   constructor(name, age, flySpeed) {
+//     super(name, age);
+//     this.flySpeed = flySpeed
+//   }
+// }
+
+// const rabbit = new Rabbit("rabbit", 1, 40);
+// const fish = new Fish("fish", 2, 80);
+// const hawk = new Hawk("hawk", 3, 100);
+
+// console.log(rabbit.name);
+// console.log(rabbit.age);
+// console.log(rabbit.runSpeed);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #54 inheritance
+
+// extends keyword
+// inheritence - a child class can inherit all the 
+// methods and properties from another class
+
+
+
+// 2. primjer
+
+// class Animal {
+//   alive = true;
+
+//   eat() {
+//     console.log(`This ${this.name} is eating.`);
+//   }
+//   sleep() {
+//     console.log(`This ${this.name} is sleeping.`);
+//   }
+// }
+
+
+// class Rabbit extends Animal {
+//   name = "rabbit";
+
+//   run() {
+//     console.log(`This ${this.name} is running.`);
+//   }
+// }
+
+
+// class Fish extends Animal {
+//   name = "fish";
+
+//   swim() {
+//     console.log(`This ${this.name} is swimming.`);
+//   }
+// }
+
+
+// class Hawk extends Animal {
+//   name = "hawk";
+
+//   fly() {
+//     console.log(`This ${this.name} is flying.`);
+//   }
+// }
+
+// const rabbit = new Rabbit();
+// const fish = new Fish();
+// const hawk = new Hawk();
+
+// console.log(rabbit.alive);
+// rabbit.eat();
+// rabbit.sleep();
+// rabbit.run();
+
+// console.log(fish.alive);
+// fish.eat();
+// fish.sleep();
+// fish.swim();
+
+// console.log(hawk.alive);
+// hawk.eat();
+// hawk.sleep();
+// hawk.fly();
+
+
+
+// 1. primjer
+
+// class Rabbit {
+//   alive = true;
+//   name = "rabbit";
+
+//   eat() {
+//     console.log(`This ${this.name} is eating.`);
+//   }
+//   sleep() {
+//     console.log(`This ${this.name} is sleeping.`);
+//   }
+//   run() {
+//     console.log(`This ${this.name} is running.`);
+//   }
+// }
+
+
+// class Fish {
+//   alive = true;
+//   name = "fish";
+
+//   eat() {
+//     console.log(`This ${this.name} is eating.`);
+//   }
+//   sleep() {
+//     console.log(`This ${this.name} is sleeping.`);
+//   }
+//   swim() {
+//     console.log(`This ${this.name} is swimming.`);
+//   }
+// }
+
+
+// class Hawk {
+//   alive = true;
+//   name = "hawk";
+
+//   eat() {
+//     console.log(`This ${this.name} is eating.`);
+//   }
+//   sleep() {
+//     console.log(`This ${this.name} is sleeping.`);
+//   }
+//   fly() {
+//     console.log(`This ${this.name} is flying.`);
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #53 static
+
+// static - belongs to the class, not the objects
+// properties: useful for caches, fixed-configurations
+// methods: useful for utility functions
+
+
+// 3. primjer
+
+// class Car {
+//   static numberOfCars = 0;
+//  constructor(model){
+//    this.model = model;
+//    Car.numberOfCars += 1;
+//  }
+//  static startRace(){
+//   console.log("3...2...1...G0!");
+//  }
+// }
+
+// const car1 = new Car("Mustamg");
+// const car2 = new Car("Corvette");
+// const car3 = new Car("BMW");
+// const car4 = new Car("Ferrari");
+// const car5 = new Car("Lambo");
+
+// Car.startRace();
+
+
+
+
+
+
+
+// 2. primjer
+
+// class Car {
+//    static numberOfCars = 0;
+//   constructor(model){
+//     this.model = model;
+//     Car.numberOfCars += 1;
+//   }
+// }
+
+// const car1 = new Car("Mustamg");
+// const car2 = new Car("Corvette");
+// const car3 = new Car("BMW");
+// const car4 = new Car("Ferrari");
+// const car5 = new Car("Lambo");
+
+// console.log(Car.numberOfCars);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 1. primjer
+
+// class Car {
+//   numberOfCars = 0;
+//   constructor(model){
+//     this.model = model;
+//     this.numberOfCars += 1;
+//   }
+// }
+
+// const car1 = new Car("Mustamg");
+// const car2 = new Car("Corvette");
+// const car3 = new Car("BMW");
+
+// console.log(car1.numberOfCars);
+// console.log(car2.numberOfCars);
+// console.log(car3.numberOfCars);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #52 constructor
+
+// constructor - a special method of a class,
+// accepts arguments and assings properties
+
+
+// class Student {
+//   constructor(name, age, gpa) {
+//     this.name = name;
+//     this.age = age;
+//     this.gpa = gpa;
+//   }
+
+//   study() {
+//     console.log(`${this.name} is studying.`);
+//   }
+// }
+
+// const student1 = new Student("Spongebob", 30, 3.2);
+// const student2 = new Student("Patrick", 35, 1.5);
+// const student3 = new Student("Sandy", 27, 4.0);
+
+// console.log(student1.name);
+// console.log(student1.age);
+// console.log(student1.gpa);
+// student1.study();
+
+// console.log(student2.name);
+// console.log(student2.age);
+// console.log(student2.gpa);
+// student2.study();
+
+// console.log(student3.name);
+// console.log(student3.age);
+// console.log(student3.gpa);
+// student3.study();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #51 class 
+
+// class - a blueprint for creating objects
+// define what properties and methods they have
+// use a constructor for unique properties
+
+
+// class Player {
+//   score = 0;
+//   pause() {
+//     console.log("You paused the game.");
+//   }
+//   exit() {
+//     console.log("You exited the game.");
+//   }
+// }
+
+// const player1 = new Player();
+// const player2 = new Player();
+// const player3 = new Player();
+// const player4 = new Player();
+
+// player1.score += 1;
+
+// console.log(player1.score);
+// console.log(player2.score);
+
+// player1.pause();
+// player1.exit();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #50 this keyword
+
+// this - reference to a particular object
+// the object depends on the immediate context
+
+
+// 2. primjer
+
+// this.name = "myCoolWindow";
+// console.log(this.name);
+
+
+
+
+// 3. primjer
+
+// window.name = "myCoolWindow"
+// console.log(window.name);
+
+
+
+
+
+// 1. primjer
+// ako ne dodamo this keyword onda nece raditi
+
+// const car1 = {
+//   model:"Mustang",
+//   color:"red",
+//   year:2023,
+
+//   drive: function() {
+//     console.log(`You drive the ${this.model}.`);
+//   },
+// }
+
+// const car2 = {
+//   model:"Corvette",
+//   color:"blue",
+//   year:2024,
+
+//   drive: function() {
+//     console.log(`You drive the ${this.model}.`);
+//   },
+// }
+
+// car1.drive();
+// car2.drive();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #49 object 
+
+// object - a group of properties and methods 
+// properties - what an object has
+// methods - what an object can do
+// use . (dot notation) to access properties methods
+
+
+
+// 2. primjer
+
+// const car1 = {
+//   model:"Mustang",
+//   color:"red",
+//   year:2023,
+
+//   drive: function() {
+//     console.log("You drive the car.");
+//   },
+
+//   brake: function() {
+//     console.log("You step on the brakes.");
+//   }
+// }
+
+// const car2 = {
+//   model:"Corvette",
+//   color:"blue",
+//   year:2024,
+
+//   drive: function() {
+//     console.log("You drive the car.");
+//   },
+
+//   brake: function() {
+//     console.log("You step on the brakes.");
+//   }
+// }
+
+// console.log(car2.model);
+// console.log(car2.color);
+// console.log(car2.year);
+
+// car2.drive();
+// car2.brake();
+
+
+
+
+
+
+// 1. primjer
+
+// const car = {
+//   model:"Mustang",
+//   color:"red",
+//   year:2023,
+
+//   drive: function() {
+//     console.log("You drive the car.");
+//   },
+
+//   brake: function() {
+//     console.log("You step on the brakes.");
+//   }
+// }
+
+// console.log(car.model);
+// console.log(car.color);
+// console.log(car.year);
+
+// car.drive();
+// car.brake();
 
 
 
