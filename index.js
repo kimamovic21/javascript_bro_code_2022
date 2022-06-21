@@ -1,3 +1,612 @@
+// #69 await - makes an async function wait for a Promise
+
+
+// async function loadFile() {
+
+//   let fileLoaded = true;
+
+//   if(fileLoaded){
+//     return "File loaded";
+//   }
+//   else {
+//     throw "File NOT loaded";
+//   }
+// };
+
+// async function startProcess() {
+//   try {
+//     let message = await loadFile();
+//     console.log(message);
+//   }
+//   catch(error) {
+//     console.log(error);
+//   }
+ 
+// }
+// startProcess();
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #68 async - makes a function return a promise
+
+// async function loadFile() {
+
+//   let fileLoaded = true;
+
+//   if(fileLoaded){
+//     return "File loaded";
+//   }
+//   else {
+//     throw "File NOT loaded";
+//   }
+
+// };
+
+// loadFile().then(value => console.log(value))
+//           .catch(error => console.log(error));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #67 promises
+
+// promise - object that encapsulates the result of 
+// an asynchronous operation
+// let asynchronous methods return values like 
+// synchronous methods
+// "I promise to return something in the future"
+
+// the STATE is 'pending' then: 'fulfilled' or 'rejected'
+// the RESULT is what can be returned
+// 2 parts producing and cosuming
+
+
+// 3. primjer
+
+// const wait = time => new Promise( resolve => {
+//     setTimeout(resolve, time);
+// });
+
+// wait(3000).then( () => console.log("Thanks for waiting."));
+
+
+
+
+
+// 2. primjer
+
+// const promise = new Promise( resolve => {
+//     setTimeout(resolve, 3000);
+// });
+
+// promise.then( () => console.log("Thanks for waiting."));
+
+
+
+
+
+
+
+
+
+// 1. primjer
+
+// const promise = new Promise((resolve, reject) => {
+
+//   let fileLoaded = false;
+
+//   if(fileLoaded){
+//     resolve("File loaded");
+//   }
+//   else {
+//     reject("File NOT loaded");
+//   }
+
+// });
+
+// promise.then(value => console.log(value))
+//        .catch(error => console.log(error));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #66 console.time()
+
+// console.time() - starts a timer you can use to track
+// how long an operation takes
+// Give each time a unique name
+
+
+// 2. primjer
+
+// // start
+// console.time("Response time");
+
+// setTimeout(() => console.log("Hello"), 3000);
+
+// // end
+// console.timeEnd("Response time");
+
+
+
+
+// 1. primjer
+
+// // start
+// console.time("Response time");
+
+// alert("Click the ok button");
+
+// // end
+// console.timeEnd("Response time");
+
+
+
+
+
+
+
+
+
+
+
+// #65 asynchronous
+
+// synchronous code = in an ordered sequence.
+// step by step linear instructions
+// (start now, finish now)
+
+// asynchronous code = out of sequence
+// example access a database
+// fetch a file
+// tasks that take time
+// (start now, finish some time later)
+
+
+
+// 2. primjer
+
+// console.log("Start");
+// setTimeout(() => console.log("This is asynchronous"), 3000);
+// console.log("End");
+
+
+
+
+// 1. primjer
+
+// console.log("Start");
+// console.log("This step is synchronous");
+// console.log("End");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #64 Clock program
+
+// const myLabel = document.getElementById("myLabel");
+
+// update();
+// setInterval(update, 1000);
+
+// function update() {
+//   let date = new Date();
+//   myLabel.innerHTML = formatTime(date);
+
+//   function formatTime(date){
+//     let hours = date.getHours();
+//     let minutes = date.getMinutes();
+//     let seconds = date.getSeconds();
+//     let amOrPm = hours >=12 ? "pm" : "am";
+
+//     hours = (hours % 12) || 12;
+
+//     hours = formatZeroes(hours);
+//     minutes = formatZeroes(minutes);
+//     seconds = formatZeroes(seconds);
+
+//     return `${hours}:${minutes}:${seconds} ${amOrPm}`
+//   }
+
+//   function formatZeroes(time) {
+//     time = time.toString();
+//     return time.length < 2 ? "0" + time : time;
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #63 Date objects
+
+
+// The date object is used work with dates and times
+
+
+
+// 7. primjer (DOM)
+
+// let date = new Date();
+
+// document.getElementById("formatDate").innerHTML = formatDate(date);
+// document.getElementById("formatTime").innerHTML = formatTime(date);
+
+// function formatDate(date) {
+//   let year = date.getFullYear();
+//   let month = date.getMonth() + 1;
+//   let day = date.getDate();
+
+//   return `${month}/${day}/${year}`
+// }
+
+// function formatTime(date) {
+//   let hours = date.getHours();
+//   let minutes = date.getMinutes();
+//   let seconds = date.getSeconds();
+//   let amOrPm = hours >= 12 ? "pm" : "am";
+
+//   hours = (hours % 12) || 12;
+
+//   return `${hours}:${minutes}:${seconds}${amOrPm}`
+// }
+
+
+
+
+
+// 6. primjer (DOM)
+
+// let date = new Date();
+
+// date.setFullYear(2024);
+// date.setMonth(11);
+// date.setDate(31);
+// date.setHours(12);
+// date.setMinutes(1);
+// date.setSeconds(30);
+
+// date = date.toLocaleString();
+// document.getElementById("myDate").innerHTML = date;
+
+
+
+
+
+// 5. primjer (DOM)
+
+// let date = new Date();
+
+// let year = date.getFullYear();
+// let dayOfMonth = date.getDate();
+// let dayOfWeek = date.getDay();
+// let month = date.getMonth();
+// let hours = date.getHours();
+// let minutes = date.getMinutes()
+// let seconds = date.getSeconds();
+// let miliseconds = date.getMilliseconds();
+
+// date = date.toLocaleString();
+
+// document.getElementById("myLabel").innerHTML = year;
+// document.getElementById("myLabel1").innerHTML = dayOfMonth;
+// document.getElementById("myLabel2").innerHTML = dayOfWeek;
+// document.getElementById("myLabel3").innerHTML = month;
+// document.getElementById("myLabel4").innerHTML = hours;
+// document.getElementById("myLabel5").innerHTML = minutes;
+// document.getElementById("myLabel6").innerHTML = seconds;
+// document.getElementById("myLabel7").innerHTML = miliseconds;
+
+// console.log(date);
+
+
+
+
+// 4. primjer (DOM)
+
+ // primjer sa negativnim i pozitivnim brojem kao parametrom
+// let date = new Date(1000000000000000);
+// let date = new Date(-100000000000);
+// let date = new Date(0);
+// let date = new Date(2023, 0, 1, 2, 3, 4);
+// let date = new Date("January 1, 2023, 00:00:00");
+// date = date.toLocaleString();
+// console.log(date);
+// document.getElementById("myLabel").innerHTML = date;
+
+
+
+
+// 3. primjer (DOM)
+
+// let date = new Date();
+// date = date.toLocaleString();
+// console.log(date);
+// document.getElementById("myLabel").innerHTML = date;
+
+
+
+
+
+// 2. primjer
+
+// let date = new Date();
+// date = date.toLocaleString();
+// console.log(date);
+
+
+
+
+// 1. primjer
+
+// let date = new Date();
+// console.log(date);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #62 setInterval()
+
+// setInterval() - invokes a function repeatedly after a number of miliseconds
+// setInterval() - asynchronous function (doesn't pause an execution)
+
+
+// let count = 0;
+// let max = window.prompt("Count up to waht #?");
+// max = Number(max);
+
+// const myTimer = setInterval(countUp, 1000);
+
+// function countUp() {
+//   count+=1;
+//   console.log(count);
+//   if(count >= max) {
+//     clearInterval(myTimer);
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #61 setTimeout()
+
+//  setTimeout() - invokes a function after a number of miliseconds
+//  setTimeout() - asynchronous function (doesn't pause execution)
+
+
+// 2. primjer
+
+// let item = "cryptocurrency";
+// let price = 399.90;
+
+// let timer1 = setTimeout(firstMessage, 2000, item, price);
+// let timer2 = setTimeout(secondMessage, 4000);
+// let timer3 = setTimeout(thirdMessage, 6000);
+
+// function firstMessage(item, price) {
+//   alert(`Buy this ${item} for ${price}`);
+// }
+// function secondMessage() {
+//   alert(`This is not a scam!`);
+// }
+// function thirdMessage() {
+//   alert(`DO IT NOW !!!`);
+// }
+
+// document.getElementById("myButton").onclick = function(){
+//   clearTimeout(timer1);
+//   clearTimeout(timer2);
+//   clearTimeout(timer3);
+//   alert(`Thanks for buying`);
+// }
+
+
+
+
+// 1. primjer
+
+// setTimeout(firstMessage, 2000);
+// setTimeout(secondMessage, 4000);
+// setTimeout(thirdMessage, 6000);
+
+// function firstMessage() {
+//   alert(`Buy this course for $199!`);
+// }
+// function secondMessage() {
+//   alert(`This is not a scam!`);
+// }
+// function thirdMessage() {
+//   alert(`DO IT NOW !!!`);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #60 error handling
+
+// error - object with a description of something went wrong
+// can't open a file
+// lose connection
+// user types incorrent input
+// TypeError
+// throw - executes a user-defined error
+
+
+// 3. primjer 
+
+// try {
+//   let x = window.prompt("Enter a #");
+//   x = Number(x);
+
+//   if(isNaN(x)) throw "That wasn't a number!";
+//   if(x == "") throw "That was empty!";
+
+//   console.log(`${x} is a number`);
+// }
+// catch(error){
+//   console.log(error);
+// }
+// finally{
+//   console.log("This always executes!");
+// }
+
+
+
+
+//2. primjer
+
+// try {
+//   console.lag();
+// }
+// catch(error){
+//   console.log(error);
+// }
+
+
+
+
+
+// 1. primjer
+
+// console.lag()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #59 anonymous objects 
 
 // anonymous objects - objects without a name
