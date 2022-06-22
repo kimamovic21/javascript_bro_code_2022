@@ -1,3 +1,164 @@
+// #72 element selectors
+
+
+// let element = document.getElementById("myTitle");
+// element.style.backgroundColor = 'lightgreen';
+
+
+// let fruits = document.getElementsByName("fruits");
+// console.log(fruits[0]);
+
+// fruits.forEach(fruit => {
+//   if(fruit.checked) {
+//     console.log(fruit.value);
+//   }
+// })
+
+
+// let vegetables = document.getElementsByTagName("li");
+// vegetables[0].style.background = 'lightgreen';
+
+
+// let desserts = document.getElementsByClassName("desserts");
+// desserts[0].style.backgroundColor = 'lightgreen';
+
+
+
+
+
+
+// Query selector - samo jedan element (prvi)
+
+// let title = document.querySelector("#myTitle");
+// title.style.backgroundColor = 'lightgreen';
+
+// let forAttribute = document.querySelector("[for]");
+// forAttribute.style.backgroundColor = 'lightgreen';
+
+// let listItem = document.querySelector("li");
+// listItem.style.backgroundColor = 'lightgreen';
+
+// let desserts = document.querySelector(".desserts");
+// desserts.style.backgroundColor = 'lightgreen';
+
+
+
+
+
+// Query selecotor All - svi elementi
+
+// let elements = document.querySelectorAll("[for]");
+// elements.forEach(element => {
+//   element.style.backgroundColor = 'lightgreen';
+// })
+
+// let elements = document.querySelectorAll("li");
+// elements.forEach(element => {
+//   element.style.backgroundColor = 'lightgreen';
+// })
+
+// let elements = document.querySelectorAll("div");
+// elements.forEach(element => {
+//   element.style.backgroundColor = 'lightgreen';
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #71 DOM intro
+
+// DOM - Document object model (API)
+// An interface for changing the content of a page
+
+
+// console.log(document);
+// console.dir(document);
+// console.log(document.title);
+// console.log(document.URL);
+
+// document.title = 'Title goes here';
+// document.location = 'https://www.google.com';
+
+// document.body.style.backgroundColor = "skyblue";
+// document.getElementById("myDiv").innerHTML = "Hello";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #70 ES6 moduls
+
+// The idea behind a module is that it's a file of reusable code
+// We can import sections of pre written code to use whenever we want
+// Great for any general utility values and functions
+// Helps to make your code more reusable and maintanable
+// Think of modules as seperate chapters of a book
+
+
+// 2. nacin importovanja
+
+// import * as MathUtil from './math_util.js';
+// console.log(MathUtil.PI);
+
+// let circumference = MathUtil.getCircumference(10);
+// console.log(circumference);
+
+// let area = MathUtil.getArea(10);
+// console.log(area);
+
+
+
+
+
+// 1. nacin importovanja
+
+// import {PI, getCircumference, getArea} from './math_util.js';
+// console.log(PI);
+
+// let circumference = getCircumference(10);
+// console.log(circumference);
+
+// let area = getArea(10);
+// console.log(area);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #69 await - makes an async function wait for a Promise
 
 
