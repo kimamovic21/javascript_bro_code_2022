@@ -1,3 +1,188 @@
+// #75 add/change CSS properties
+
+const title = document.getElementById("myTitle");
+
+// title.style.backgroundColor = "lightblue"; 
+// title.style.backgroundColor = "rgb(50, 200, 250)";
+title.style.backgroundColor = "#336DFF";
+title.style.color = "rgb(50, 200, 250)"
+title.style.fontFamily = "consolas";
+title.style.textAlign = "center";
+title.style.border = "2px solid red";
+// title.style.display = "none";
+title.style.display = "block";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #74 add/change HTML elements
+
+// .innerHTML (vulnerable to XSS attacks)
+// .textContext (more secure)
+
+
+// 4. primjer
+
+// const myList = document.querySelector("#fruits");
+// const listItem = document.createElement("li");
+// listItem.textContent = "Mango";
+// myList.append(listItem);
+// myList.prepend(listItem);
+// myList.insertBefore(listItem, myList.getElementsByTagName("li")[1]);
+
+
+
+
+
+// 3. pimjer (textContent)
+
+// const nameTag = document.createElement("h1");
+// nameTag.textContent = window.prompt("Enter your name");
+// document.body.append(nameTag);
+ 
+
+
+
+// 2. primjer (innerHTML)
+
+// const nameTag = document.createElement("h1");
+// nameTag.innerHTML = window.prompt("Enter your name");
+// document.body.append(nameTag);
+
+
+
+
+// 1. primjer
+
+// const nameTag = document.createElement("h1");
+// nameTag.innerHTML = "Kerim";
+// document.body.append(nameTag);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 73 DOM traversal
+
+
+// family relationships between elements
+
+
+// 6. primjer
+
+// let element = document.querySelector("#fruits");
+// let children = Array.from(element.children);
+// children.forEach(child => {
+//   child.style.backgroundColor = 'lightgreen'
+// })
+
+// let element1 = document.querySelector("#vegetables");
+// let children1 = Array.from(element1.children);
+// children1.forEach(child => {
+//   child.style.backgroundColor = 'lightblue'
+// })
+
+// let element2 = document.querySelector("#desserts");
+// let children2 = Array.from(element2.children);
+// children2.forEach(child => {
+//   child.style.backgroundColor = 'yellow'
+// })
+
+
+
+// 5. primjer
+
+// let element = document.querySelector("#fruits");
+// let child = element.children[1];
+// child.style.backgroundColor = 'lightgreen';
+
+
+// 4. primjer
+
+// let element = document.querySelector("#fruits");
+// let child = element.firstElementChild;
+// child.style.backgroundColor = 'lightgreen';
+
+
+
+// 3. primjer
+
+// let element = document.querySelector("#vegetables");
+// let sibling = element.nextElementSibling;
+// sibling.style.backgroundColor = 'lightgreen'; 
+
+
+
+// 2. primjer
+
+// let element = document.querySelector("#vegetables");
+// let parent = element.parentElement;
+// parent.style.backgroundColor = 'lightgreen';
+
+
+
+
+// 1.primjer
+
+// let element = document.body;
+// let child = element.firstElementChild;
+// child.style.backgroundColor = 'lightgreen';
+
+
+// .firstElementChild
+// .lastElementChild
+// .parentElement
+// .nextElementSibling
+// .previosElementSibling
+// .children[]
+// Array.from(.childre)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #72 element selectors
 
 
