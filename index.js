@@ -1,16 +1,435 @@
+// #81 canvas API
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #80 animations
+
+
+// 4. primjer
+
+// const myButton = document.getElementById("myButton");
+// const myAnimation = document.getElementById("myDiv");
+
+// myButton.addEventListener("click", begin); 
+
+// function begin() {
+//   let timerId = null;
+//   let scaleX = 1;
+//   let scaleY = 1;
+
+//   timerId = setInterval(frame, 4);
+
+//   function frame() {
+//     if (scaleX >= 2 || scaleY >= 2) {
+//       // scaleX <= 0.1 || scaleY <= 0.1
+//       clearInterval(timerId); 
+//     }
+//     else {
+//       scaleX += 0.01;
+//       scaleY += 0.01;
+//       // scaleX -= 0.01;
+//       // scaleY -= 0.01;
+//       myAnimation.style.transform = "scale("+scaleX+","+scaleY+")";
+//   }
+//  }
+// }
+
+
+
+
+// 3. primjer
+
+// const myButton = document.getElementById("myButton");
+// const myAnimation = document.getElementById("myDiv");
+
+// myButton.addEventListener("click", begin); 
+
+// function begin() {
+//   let timerId = null;
+//   let degrees = 0;
+//   let x = 0;
+//   let y = 0;
+
+//   timerId = setInterval(frame, 4);
+
+//   function frame() {
+//     if ( x >= 200 || y >= 200) {
+//       clearInterval(timerId); 
+//     }
+//     else {
+//      degrees+=2;
+//      x += 1;
+//      y += 1;
+//      myAnimation.style.left = x + "px";
+//      myAnimation.style.top = y + "px";
+//      myAnimation.style.transform = "rotateZ("+degrees+"deg)";
+//   }
+//  }
+// }
+
+
+
+
+// 2. primjer
+
+// const myButton = document.getElementById("myButton");
+// const myAnimation = document.getElementById("myDiv");
+
+// myButton.addEventListener("click", begin); 
+
+// function begin() {
+//   let timerId = null;
+//   let degrees = 0;
+
+//   timerId = setInterval(frame, 4);
+
+//   function frame() {
+//     if (degrees >= 360) {
+//       clearInterval(timerId); 
+//     }
+//     else {
+//      degrees+=1;
+//      myAnimation.style.transform = "rotateX("+degrees+"deg)";
+//   }
+//  }
+// }
+
+
+
+
+// 1. primjer
+
+// const myButton = document.getElementById("myButton");
+// const myAnimation = document.getElementById("myDiv");
+
+// myButton.addEventListener("click", begin); 
+//                         // event , callback function
+// function begin() {
+//   let timerId = null;
+//   let x = 0;
+//   let y = 0;
+
+//   timerId = setInterval(frame, 4);
+//   // setInterval metoda (callback , 
+//   // duzina - nakon koliko sekundi zelimo da pokrenemo ovu funkciju)
+//   function frame() {
+//     if (x >= 200 || y >= 200) {
+//       clearInterval(timerId); 
+//       // clearInterval metodom se zaustavlja animacija
+//     }
+//     else {
+//       x += 1;
+//       y += 1;
+//       myAnimation.style.left = x + "px";
+//       myAnimation.style.top = y + "px";
+//     }
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #79 detect key presses
+
+
+// 2. primjer
+
+// const myDiv = document.getElementById("myDiv");
+// window.addEventListener("keydown", move);
+// let x = 0;
+// let y = 0;
+// function move(event) {
+//   switch(event.key) {
+//     case "ArrowDown" : 
+//       y+=5;
+//       myDiv.style.top = y + "px";
+//       break;
+//     case "ArrowUp" : 
+//       y-=5;
+//       myDiv.style.top = y + "px";
+//       break;
+//     case "ArrowRight" : 
+//       x+=5;
+//       myDiv.style.left = x + "px";
+//       break;
+//     case "ArrowLeft" : 
+//       x-=5;
+//       myDiv.style.left = x + "px";
+//       break;
+//     default:
+//       break;
+//   }
+// }
+
+
+
+
+// 1. primjer
+
+// window.addEventListener("keydown", event => console.log(event.key));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #78 show/hide HTML elements
+
+
+// 2. primjer
+
+// const myButton = document.querySelector("#myButton");
+// const myImg = document.querySelector("#myImg");
+ 
+// myButton.addEventListener("click", () => {
+//   console.log(myImg.style.display);
+//   if(myImg.style.visibility == "hidden"){
+//      myImg.style.visibility = "visible";
+//   } 
+//   else {
+//     myImg.style.visibility = "hidden";
+//   }
+// });
+
+
+
+
+
+// 1. primjer
+
+// const myButton = document.querySelector("#myButton");
+// const myImg = document.querySelector("#myImg");
+ 
+// myButton.addEventListener("click", () => {
+//   console.log(myImg.style.display);
+//   if(myImg.style.display == "none"){
+//      myImg.style.display = "block";
+//   } 
+//   else {
+//     myImg.style.display = "none";
+//   }
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #77 .addEventListener
+
+// .addEventListener(event, function, useCapture)
+// You can add many event handlers to one element
+// Even the same event that invokes different functions
+
+
+// 2. primjer
+
+// const innerDiv = document.getElementById("innerDiv");
+// const outerDiv = document.getElementById("outerDiv");
+
+// innerDiv.addEventListener("click", changeBlue);
+// outerDiv.addEventListener("click", changeBlue, true);
+
+// function changeBlue() {
+//   alert(`You selected ${this.id}`);
+//   this.style.backgroundColor = 'lightblue';
+// }
+
+
+
+
+
+// 1. primjer
+
+// const innerDiv = document.getElementById("innerDiv");
+
+// innerDiv.addEventListener("mouseover", changeRed);
+// innerDiv.addEventListener("mouseout", changeGreen);
+
+// function changeRed() {
+//   innerDiv.style.backgroundColor = "red";
+// }
+
+// function changeGreen() {
+//   innerDiv.style.backgroundColor = "green";
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #76 events
+
+
+// 5. primjer
+
+// const element = document.getElementById("myDiv");
+// element.onmouseover = doSomething;
+// element.onmouseout = doSomethingElse;
+// element.onmousedown = doSomething;
+// element.onmouseup = doSomethingElse;
+
+// function doSomething() {
+//   element.style.backgroundColor = 'red';
+// }
+
+// function doSomethingElse() {
+//   element.style.backgroundColor = 'lightgreen';
+// }
+
+
+
+
+
+// 4. primjer
+
+// const element = document.getElementById("myText");
+// element.onchange = doSomething; 
+
+// function doSomething() {
+//   alert("You did something");
+// }
+
+
+
+// 3. primjer
+
+// const element = document.body;
+// element.onload = doSomething;
+
+// function doSomething() {
+//   alert("You did something");
+// }
+
+
+
+// 2. primjer
+
+// const element = document.getElementById("myButton1");
+// element.onclick = doSomething;
+
+// function doSomething() {
+//   alert("You did something");
+// }
+
+
+
+// 1. primjer
+
+// function doSomething() {
+//   alert("You did something");
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #75 add/change CSS properties
 
-const title = document.getElementById("myTitle");
+// const title = document.getElementById("myTitle");
 
 // title.style.backgroundColor = "lightblue"; 
 // title.style.backgroundColor = "rgb(50, 200, 250)";
-title.style.backgroundColor = "#336DFF";
-title.style.color = "rgb(50, 200, 250)"
-title.style.fontFamily = "consolas";
-title.style.textAlign = "center";
-title.style.border = "2px solid red";
+// title.style.backgroundColor = "#336DFF";
+// title.style.color = "rgb(50, 200, 250)"
+// title.style.fontFamily = "consolas";
+// title.style.textAlign = "center";
+// title.style.border = "2px solid red";
 // title.style.display = "none";
-title.style.display = "block";
+// title.style.display = "block";
 
 
 
