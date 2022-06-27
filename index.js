@@ -1,12 +1,400 @@
+// #84 Stopwatch game
+
+// const timeDisplay = document.querySelector("#timeDisplay");
+// const startBtn = document.querySelector("#startBtn");
+// const pauseBtn = document.querySelector("#pauseBtn");
+// const resetBtn = document.querySelector("#resetBtn");
+
+// let startTime = 0;
+// let elapsedTime = 0;
+// let currentTime = 0;
+// let paused = true;
+// let intervalId;
+// let hrs = 0;
+// let mins = 0;
+// let secs = 0;
+
+// startBtn.addEventListener("click", () => {
+//   if(paused) {
+//     paused = false;
+//     startTime = Date.now() - elapsedTime;
+//     intervalId = setInterval(updateTime, 1000)
+//   }
+// });
+
+// pauseBtn.addEventListener("click", () => {
+//   if(!paused) {
+//     paused = true;
+//     elapsedTime = Date.now() - startTime;
+//     clearInterval(intervalId);
+//   }
+// });
+
+// resetBtn.addEventListener("click", () => {
+//   paused = true;
+//   clearInterval(intervalId);
+//   startTime = 0;
+//   elapsedTime = 0;
+//   currentTime = 0;
+//   hrs = 0;
+//   mins = 0;
+//   secs = 0;
+//   timeDisplay.textContent = "00:00:00";
+// });
+
+// function updateTime() {
+//   elapsedTime = Date.now() - startTime;
+
+//   secs = Math.floor((elapsedTime / 1000) % 60);
+//   mins = Math.floor((elapsedTime / (1000 * 60)) % 60);
+//   hrs = Math.floor((elapsedTime / (1000 * 60 * 60)) % 60);
+
+//   secs = pad(secs);
+//   mins = pad(mins);
+//   hrs = pad(hrs);
+
+//   timeDisplay.textContent = `${hrs}:${mins}:${secs}`;
+
+//   function pad(unit) {
+//     return (("0") + unit).length > 2 ? unit : "0" + unit
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #83 cookies
+
+// cookies - a small text file stored on your computer
+// used to remember information about the user saved in
+// name=value pairs
+
+
+// 4. primjer
+
+// const firstText = document.querySelector("#firstText");
+// const lastText = document.querySelector("#lastText");
+// const submitBtn = document.querySelector("#submitBtn");
+// const cookieBtn = document.querySelector("#cookieBtn");
+
+// submitBtn.addEventListener("click", () => {
+//   setCookie("firstName", firstText.value, 365);
+//   setCookie("lastName", lastText.value, 365);
+// });
+
+// cookieBtn.addEventListener("click", () => {
+//   firstText.value = getCookie("firstName");
+//   lastText.value = getCookie("lastName");
+// });
+
+// function setCookie(name, value, daysToLive) {
+//   const date = new Date();
+//   date.setTime(date.getTime() + daysToLive * 24 * 60 * 60 * 1000);
+//   let expires = "expires=" + date.toUTCString();
+//   document.cookie = `${name}=${value}; ${expires}; path=/`;
+// }
+
+// function deleteCookie(name) {
+//   setCookie(name, null, null);
+// }
+
+// function getCookie(name) {
+//   const cDecoded = decodeURIComponent(document.cookie);
+//   const cArray = cDecoded.split("; ");
+//   let result = null; 
+
+//   cArray.forEach( element => {
+//     if(element.indexOf(name) == 0) {
+//       result = element.substring(name.length + 1)
+//     }
+//   })
+//   return result;
+// }
+
+
+
+
+// 3. primjer
+
+// setCookie("firstName", "SpongeBob", 365);
+// setCookie("lastName", "Squarepants", 365);
+
+// console.log(getCookie("firstName"));
+// console.log(getCookie("lastName"));
+
+// function setCookie(name, value, daysToLive) {
+//   const date = new Date();
+//   date.setTime(date.getTime() + daysToLive * 24 * 60 * 60 * 1000);
+//   let expires = "expires=" + date.toUTCString();
+//   document.cookie = `${name}=${value}; ${expires}; path=/`;
+// }
+
+// function deleteCookie(name) {
+//   setCookie(name, null, null);
+// }
+
+// function getCookie(name) {
+//   const cDecoded = decodeURIComponent(document.cookie);
+//   const cArray = cDecoded.split("; ");
+//   let result = null; 
+
+//   cArray.forEach( element => {
+//     if(element.indexOf(name) == 0) {
+//       result = element.substring(name.length + 1)
+//     }
+//   })
+//   return result;
+// }
+
+
+
+
+
+// 2. primjer
+
+// setCookie("email", "Sponge@gmail.com", 365);
+// console.log(document.cookie);
+
+// function setCookie(name, value, daysToLive) {
+//   const date = new Date();
+//   date.setTime(date.getTime() + daysToLive * 24 * 60 * 60 * 1000);
+//   let expires = "expires=" + date.toUTCString();
+//   document.cookie = `${name}=${value}; ${expires}; path=/`;
+// }
+
+// function deleteCookie(name) {
+//   setCookie(name, null, null);
+// }
+
+// deleteCookie("firstName");
+// deleteCookie("lastName");
+// deleteCookie("email");
+
+
+
+// 1. primjer
+
+// console.log(navigator.cookieEnabled);
+// document.cookie = "firstName=SpongeBog; expires=Sun, 1 January 2023 12:00:00 UTC; path=/";
+// document.cookie = "lastName=SquarePants; expires=Sun, 1 January 2023 12:00:00 UTC; path=/";
+// console.log(document.cookie);
+
+
+
+
+
+
+
+
+
+
+
+// #82 window object
+
+// window - interface used to talk to the web browser
+// the DOM is a property of the window
+
+
+// 5. primjer
+
+// window.alert("Hello!");
+// window.confirm("Press OK to continue");
+// let age = window.prompt("Enter your age");
+// if (age < 12) {
+//   window.alert("You must be 18+ to visit this site");
+//   window.close();
+// }
+
+
+
+
+
+// 4. primjer
+
+// const myButton = document.querySelector("#myButton");
+// myButton.addEventListener("click", () => {
+//   window.open("https://www.google.com")}
+// );
+
+// const closeButton = document.querySelector("#closeButton");
+// closeButton.addEventListener("click", () => {
+//   window.close()}
+// );
+
+// const printButton = document.querySelector("#printButton");
+// printButton.addEventListener("click", () => {
+//   window.print()}
+// );
+
+
+
+
+
+// 3. primjer
+
+// console.log(window.location.href);
+// console.log(window.location.hostname);
+// window.location.href = "https://www.google.com"
+// console.log(window.location.pathname);
+
+
+
+
+
+// 2. primjer
+
+// console.log(window.scrollX);
+// console.log(window.scrollY);
+
+
+
+
+
+// 1. primjer
+
+// console.dir(window);
+// console.log(window.innerWidth);
+// console.log(window.innerHeight);
+// console.log(window.outerWidth);
+// console.log(window.outerHeight);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #81 canvas API
 
 
+// Canvas API - a means for drawing graphics
+// Used for animations, games, data visualization
+
+
+// let canvas = document.getElementById("myCanvas");
+// let context = canvas.getContext("2d");
+
+
+// 5. primjer
+
+// Draw text
+// context.font = "50px MV Boli";
+// context.fillStyle = "grey";
+// context.textAlign = "center";
+// context.fillText("You win!", canvas.width/2, canvas.height/2);
 
 
 
 
 
 
+
+
+// 4. primjer
+
+// Draw circle
+// (x, y, r, sAngle, eAngle, counterclockwise)
+
+// context.fillStyle = "lightblue";
+// context.lineWidth = 7;
+// context.strokeStyle = "red"
+// context.beginPath();
+// context.arc(250, 250, 200, 0, 2 * Math.PI);
+// context.stroke();
+// context.fill();
+
+
+
+
+
+
+
+// 3. primjer
+
+// Draw rectangle
+// context.lineWidth = 5;
+// context.fillStyle = "blue"
+// context.fillRect(0, 0, 250, 250)
+// context.strokeStyle = "red";
+// context.strokeRect(0, 0, 250, 250);
+
+// context.lineWidth = 5;
+// context.fillStyle = "red"
+// context.fillRect(0, 250, 250, 250)
+// context.strokeStyle = "blue";
+// context.strokeRect(0, 250, 250, 250);
+
+// context.lineWidth = 5;
+// context.fillStyle = "green"
+// context.fillRect(250, 250, 250, 250)
+// context.strokeStyle = "black";
+// context.strokeRect(250, 250, 250, 250);
+
+// context.lineWidth = 5;
+// context.fillStyle = "black"
+// context.fillRect(250, 0, 250, 250)
+// context.strokeStyle = "green";
+// context.strokeRect(250, 0, 250, 250);
+
+
+
+
+
+
+
+// 2. primjer
+
+// Draw triangle
+
+// context.strokeStyle = "grey"
+// context.fillStyle = "yellow";
+// context.lineWidth = 5;
+// context.beginPath();
+// context.moveTo(250, 0);
+// context.lineTo(0, 250);
+// context.lineTo(500, 250);
+// context.lineTo(250, 0);
+// context.fill();
+// context.stroke();
+
+
+
+
+
+
+
+// 1. primjer
+
+// Draw lines
+
+// context.strokeStyle = "purple"
+// context.lineWidth = 10;
+// context.beginPath();
+// context.moveTo(0,0);
+// context.lineTo(250, 250);
+// context.lineTo(250, 500);
+// context.moveTo(500, 0);
+// context.lineTo(250, 250);
+// context.stroke();
 
 
 
