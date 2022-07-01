@@ -1,193 +1,422 @@
+// #88 Pong game
+
+// const gameBoard = document.querySelector("#gameBoard");
+// const context = gameBoard.getContext("2d");
+// const scoreText = document.querySelector("#scoreText");
+// const resetBtn = document.querySelector("#resetBtn");
+// const gameWidth = gameBoard.width;
+// const gameHeight = gameBoard.height;
+// const boardBackground = "green";
+// const paddle1Color = "lightblue";
+// const paddle2Color = "red";
+// const paddleBorder = "black";
+// const ballColor = "yellow";
+// const ballBorderColor = "black";
+// const ballRadius = 20;
+// const paddleSpeed = 40;
+
+// let intervalId;
+// let ballSpeed = 0.5;
+// let ballX = gameWidth / 2;
+// let ballY = gameHeight / 2;
+// let ballXDirection = 0;
+// let ballYDirection = 0;
+// let player1Score = 0;
+// let player2Score = 0;
+
+// let paddle1 = {
+//   width: 35,
+//   height: 120,
+//   x: 0,
+//   y: 0
+// };
+// let paddle2 = {
+//   width: 35,
+//   height: 120,
+//   x: gameWidth - 35,
+//   y: gameHeight - 110
+// };
+
+// window.addEventListener("keydown", changeDirection);
+// resetBtn.addEventListener("click", resetGame);
+
+// gameStart();
+// // drawPaddles();
+
+// // 3. uredujemo gameStart funkciju
+// function gameStart(){
+//   createBall();
+//   nextTick();
+// }
+
+// // 4. uredujemo nextTick funkciju
+// function nextTick(){
+//   intervalId = setTimeout(() => {
+//     clearBoard();
+//     drawPaddles();
+//     moveBall();
+//     drawBall(ballX, ballY);
+//     checkCollision();
+//     nextTick();
+//   }, 10)
+// };
+
+// // 5. uredujemo clearBoard funkciju
+// function clearBoard(){
+//   context.fillStyle = boardBackground;
+//   context.fillRect(0, 0, gameWidth, gameHeight);
+// }
+
+// // 1. uredujemo drawPaddles funkciju
+// function drawPaddles(){
+//   context.strokeStyle = paddleBorder;
+
+//   context.fillStyle = paddle1Color;
+//   context.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
+//   context.strokeRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
+
+//   context.fillStyle = paddle2Color;
+//   context.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
+//   context.strokeRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
+// };
+
+// // 8. uredujemo createBall funkciju
+// function createBall(){
+//   ballSpeed = 1;
+//   if(Math.round(Math.random()) == 1){
+//     ballXDirection = 1;
+//   } 
+//   else {
+//     ballXDirection = -1;
+//   }
+//   if(Math.round(Math.random()) == 1){
+//     ballYDirection = 1;
+//   } 
+//   else {
+//     ballYDirection = -1;
+//   }
+//   ballX = gameWidth / 2;
+//   ballY = gameHeight / 2;
+//   drawBall(ballX, ballY);
+// };
+
+// // 9. uredujemo moveBall funkciju
+// function moveBall(){
+//   ballX += (ballSpeed * ballXDirection);
+//   ballY += (ballSpeed * ballYDirection);
+// }
+
+// // 7. uredujemo drawBall funkciju
+// function drawBall(ballX, ballY){
+//   context.fillStyle = ballColor;
+//   context.strokeStyle = ballBorderColor;
+//   context.lineWidth = 2;
+//   context.beginPath();
+//   context.arc(ballX, ballY, ballRadius, 0, 2 * Math.PI);
+//   context.stroke();
+//   context.fill();
+// }
+
+// // 10. uredujemo checkCollision funckiju
+// function checkCollision(){
+//   if(ballY <= 0 + ballRadius) {
+//     ballYDirection *= -1;
+//   }
+//   if(ballY >= gameHeight - ballRadius){
+//     ballYDirection *= -1;
+//   }
+//   if(ballX <= 0){
+//     player2Score+=1;
+//     updateScore();
+//     createBall();
+//     return;
+//   }
+//   if(ballX >= gameWidth){
+//     player1Score+=1;
+//     updateScore();
+//     createBall();
+//     return;
+//   }
+//   if (ballX <= (paddle1.x + paddle1.width + ballRadius)){
+//     if(ballY > paddle1.y && ballY < paddle1.y + paddle1.height){
+//       ballX = (paddle1.x + paddle1.width + ballRadius); //if ball gets stuck
+//       ballXDirection *= -1;
+//       ballSpeed += .5;
+//     }
+//   }
+//   if (ballX >= (paddle2.x - ballRadius)){
+//     if(ballY > paddle2.y && ballY < paddle2.y + paddle2.height){
+//       ballX = paddle2.x - ballRadius; // if ball gets stuck
+//       ballXDirection *= -1;
+//       ballSpeed += .5;
+//     }
+//   }
+// }
+
+// // 6. uredujemo changeDirection funkciju
+// function changeDirection(event){
+//   const keyPressed = event.keyCode;
+//   // console.log(keyPressed);
+//   const paddle1Up = 87;
+//   const paddle1Down = 83;
+//   const paddle2Up = 38;
+//   const paddle2Down = 40;
+
+//   switch(keyPressed){
+//     case(paddle1Up):
+//       if(paddle1.y > 0) {
+//         paddle1.y -= paddleSpeed;
+//       }
+//       break;
+//     case(paddle1Down):
+//       if(paddle1.y < gameHeight - paddle1.height) {
+//         paddle1.y += paddleSpeed;
+//       }
+//       break;
+//     case(paddle2Up):
+//       if(paddle2.y > 0) {
+//         paddle2.y -= paddleSpeed;
+//       }
+//       break;
+//     case(paddle2Down):
+//       if(paddle2.y < gameHeight - paddle2.height) {
+//         paddle2.y += paddleSpeed;
+//       }
+//       break;
+//   }
+// };
+
+// // 11. uredujemo updateScore funkciju
+// function updateScore(){
+//   scoreText.textContent = `${player1Score} : ${player2Score}`;
+// };
+
+// // 12. uredujemo resetGame funkciju
+// function resetGame(){
+//   player1Score = 0;
+//   player2Score = 0;
+//   paddle1 = {
+//     width: 35,
+//     height: 120,
+//     x: 0,
+//     y: 0
+//   };
+//   paddle2 = {
+//     width: 35,
+//     height: 120,
+//     x: gameWidth - 35,
+//     y: gameHeight - 120
+//   };
+//   ballSpeed = 0.5;
+//   ballX = 0;
+//   ballY = 0;
+//   ballXDirection = 0;
+//   ballYDirection = 0;
+//   updateScore();
+//   clearInterval(intervalId);
+//   gameStart();
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #87 Snake game
 
-const gameBoard = document.querySelector("#gameBoard");
-const context = gameBoard.getContext("2d");
-const scoreText = document.querySelector("#scoreText");
-const resetBtn = document.querySelector("#resetBtn");
-const gameWidth = gameBoard.width;
-const gameHeight = gameBoard.height;
-const boardBackground = "white";
-const snakeColor = "lightgreen";
-const snakeBorder = "black";
-const foodColor = "red";
-const unitSize = 15;
+// const gameBoard = document.querySelector("#gameBoard");
+// const context = gameBoard.getContext("2d");
+// const scoreText = document.querySelector("#scoreText");
+// const resetBtn = document.querySelector("#resetBtn");
+// const gameWidth = gameBoard.width;
+// const gameHeight = gameBoard.height;
+// const boardBackground = "white";
+// const snakeColor = "lightgreen";
+// const snakeBorder = "black";
+// const foodColor = "red";
+// const unitSize = 15;
 
-let running = false;
-let xVelocity = unitSize;
-let yVelocity = 0;
-let foodX;
-let foodY;
-let score = 0;
-let snake = [
-  {x:unitSize * 4, y:0},
-  {x:unitSize * 3, y:0},
-  {x:unitSize * 2, y:0},
-  {x:unitSize * 1, y:0},
-  {x:0, y:0}
-]
+// let running = false;
+// let xVelocity = unitSize;
+// let yVelocity = 0;
+// let foodX;
+// let foodY;
+// let score = 0;
+// let snake = [
+//   {x:unitSize * 4, y:0},
+//   {x:unitSize * 3, y:0},
+//   {x:unitSize * 2, y:0},
+//   {x:unitSize * 1, y:0},
+//   {x:0, y:0}
+// ]
 
-window.addEventListener("keydown", changeDirection);
-resetBtn.addEventListener("click", resetGame);
+// window.addEventListener("keydown", changeDirection);
+// resetBtn.addEventListener("click", resetGame);
 
-gameStart();
+// gameStart();
 
-// 3. uredujemo gameStart funkciju
-function gameStart(){
-  running = true;
-  scoreText.textContent = score;
-  createFood();
-  drawFood();
-  nextTick();
-};
+// // 3. uredujemo gameStart funkciju
+// function gameStart(){
+//   running = true;
+//   scoreText.textContent = score;
+//   createFood();
+//   drawFood();
+//   nextTick();
+// };
 
-// 4. uredujemo nextTick funkciju
-function nextTick(){
-  if(running){
-    setTimeout(() => {
-      clearBoard();
-      drawFood();
-      moveSnake();
-      drawSnake();
-      checkGameOver();
-      nextTick();
-    }, 75);
-  }
-  else {
-    displayGameOver();
-  }
-};
+// // 4. uredujemo nextTick funkciju
+// function nextTick(){
+//   if(running){
+//     setTimeout(() => {
+//       clearBoard();
+//       drawFood();
+//       moveSnake();
+//       drawSnake();
+//       checkGameOver();
+//       nextTick();
+//     }, 75);
+//   }
+//   else {
+//     displayGameOver();
+//   }
+// };
 
-// 5. uredujemo ClearBoard funkciju
-function clearBoard(){
-  context.fillStyle = boardBackground;
-  context.fillRect(0, 0, gameWidth, gameHeight);
-};
+// // 5. uredujemo ClearBoard funkciju
+// function clearBoard(){
+//   context.fillStyle = boardBackground;
+//   context.fillRect(0, 0, gameWidth, gameHeight);
+// };
 
-// 1. uredujemo createFood funkciju
-function createFood(){
-  function randomFood(min, max){
-    const randNum = Math.round((Math.random() * (max - min) + min) / unitSize ) * unitSize;
-    return randNum;
-  }
-  foodX = randomFood(0, gameWidth - unitSize);
-  foodY = randomFood(0, gameWidth - unitSize);
-  // console.log(foodX);
-};
+// // 1. uredujemo createFood funkciju
+// function createFood(){
+//   function randomFood(min, max){
+//     const randNum = Math.round((Math.random() * (max - min) + min) / unitSize ) * unitSize;
+//     return randNum;
+//   }
+//   foodX = randomFood(0, gameWidth - unitSize);
+//   foodY = randomFood(0, gameWidth - unitSize);
+//   // console.log(foodX);
+// };
 
-// 2. uredujemo drawFood funkciju
-function drawFood(){
-  context.fillStyle = foodColor;
-  context.fillRect(foodX, foodY, unitSize, unitSize);
-};
+// // 2. uredujemo drawFood funkciju
+// function drawFood(){
+//   context.fillStyle = foodColor;
+//   context.fillRect(foodX, foodY, unitSize, unitSize);
+// };
 
-// 7. uredujemo moveSnake funkciju
-function moveSnake(){
-  const head = {x: snake[0].x + xVelocity,
-                y: snake[0].y + yVelocity};
+// // 7. uredujemo moveSnake funkciju
+// function moveSnake(){
+//   const head = {x: snake[0].x + xVelocity,
+//                 y: snake[0].y + yVelocity};
 
-  snake.unshift(head);
-  // if food is eaten
-  if(snake[0].x == foodX && snake[0].y == foodY) {
-    score+=1;
-    scoreText.textContent = score;
-    createFood();
-  }
-  else {
-    snake.pop();
-  }
-};
+//   snake.unshift(head);
+//   // if food is eaten
+//   if(snake[0].x == foodX && snake[0].y == foodY) {
+//     score+=1;
+//     scoreText.textContent = score;
+//     createFood();
+//   }
+//   else {
+//     snake.pop();
+//   }
+// };
 
-// 6. uredujemo drawSnake funkciju
-function drawSnake(){
-  context.fillStyle = snakeColor;
-  context.strokeStyle = snakeBorder;
-  snake.forEach(snakePart => {
-    context.fillRect(snakePart.x, snakePart.y, unitSize, unitSize);
-    context.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize);
-  });
-};
+// // 6. uredujemo drawSnake funkciju
+// function drawSnake(){
+//   context.fillStyle = snakeColor;
+//   context.strokeStyle = snakeBorder;
+//   snake.forEach(snakePart => {
+//     context.fillRect(snakePart.x, snakePart.y, unitSize, unitSize);
+//     context.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize);
+//   });
+// };
 
-// 8. uredujemo changeDirection funkciju
-function changeDirection(event){
-  const keyPressed = event.keyCode;
-  const LEFT = 37;
-  const UP = 38;
-  const RIGHT = 39;
-  const DOWN = 40;
+// // 8. uredujemo changeDirection funkciju
+// function changeDirection(event){
+//   const keyPressed = event.keyCode;
+//   const LEFT = 37;
+//   const UP = 38;
+//   const RIGHT = 39;
+//   const DOWN = 40;
 
-  const goingUp = (yVelocity == -unitSize);
-  const goingDown = (yVelocity == unitSize);
-  const goingRight = (xVelocity == unitSize);
-  const goingLeft = (xVelocity == -unitSize);
+//   const goingUp = (yVelocity == -unitSize);
+//   const goingDown = (yVelocity == unitSize);
+//   const goingRight = (xVelocity == unitSize);
+//   const goingLeft = (xVelocity == -unitSize);
 
-  switch(true){
-    case(keyPressed == LEFT && !goingRight):
-      xVelocity = -unitSize;
-      yVelocity = 0;
-      break;
-    case(keyPressed == UP && !goingDown):
-      xVelocity = 0;
-      yVelocity = -unitSize;
-      break;
-    case(keyPressed == RIGHT && !goingLeft):
-      xVelocity = unitSize;
-      yVelocity = 0;
-      break;
-    case(keyPressed == DOWN && !goingUp):
-      xVelocity = 0;
-      yVelocity = unitSize;
-      break;
-  }
-};
+//   switch(true){
+//     case(keyPressed == LEFT && !goingRight):
+//       xVelocity = -unitSize;
+//       yVelocity = 0;
+//       break;
+//     case(keyPressed == UP && !goingDown):
+//       xVelocity = 0;
+//       yVelocity = -unitSize;
+//       break;
+//     case(keyPressed == RIGHT && !goingLeft):
+//       xVelocity = unitSize;
+//       yVelocity = 0;
+//       break;
+//     case(keyPressed == DOWN && !goingUp):
+//       xVelocity = 0;
+//       yVelocity = unitSize;
+//       break;
+//   }
+// };
 
-// 9. uredujemo checkGameOver funkciju
-function checkGameOver(){
-  switch(true){
-    case (snake[0].x < 0):
-      running = false;
-      break;
-    case (snake[0].x >= gameWidth):
-      running = false;
-      break;
-    case(snake[0].y < 0):
-      running = false;
-      break;
-    case(snake[0].y >= gameHeight):
-      running = false;
-      break;
-  }
-  for(let i = 1; i < snake.length; i+=1){
-    if(snake[i].x == snake[0].x && snake[i].y == snake[0].y) {
-      running = false;
-    }
-  }
-};
+// // 9. uredujemo checkGameOver funkciju
+// function checkGameOver(){
+//   switch(true){
+//     case (snake[0].x < 0):
+//       running = false;
+//       break;
+//     case (snake[0].x >= gameWidth):
+//       running = false;
+//       break;
+//     case(snake[0].y < 0):
+//       running = false;
+//       break;
+//     case(snake[0].y >= gameHeight):
+//       running = false;
+//       break;
+//   }
+//   for(let i = 1; i < snake.length; i+=1){
+//     if(snake[i].x == snake[0].x && snake[i].y == snake[0].y) {
+//       running = false;
+//     }
+//   }
+// };
 
-// 10. uredujemo displayGameOver funkciju
-function displayGameOver(){
-  context.font = "50px MV Boli";
-  context.fillStyle = "black";
-  context.textAlign = "center";
-  context.fillText("Game over!", gameWidth / 2, gameHeight / 2);
-  running = false;
-};
+// // 10. uredujemo displayGameOver funkciju
+// function displayGameOver(){
+//   context.font = "50px MV Boli";
+//   context.fillStyle = "black";
+//   context.textAlign = "center";
+//   context.fillText("Game over!", gameWidth / 2, gameHeight / 2);
+//   running = false;
+// };
 
-// 11. uredujemo resetGame funkciju
-function resetGame(){
-  score = 0;
-  xVelocity = unitSize;
-  yVelocity = 0;
-  snake = [
-    {x:unitSize * 4, y:0},
-    {x:unitSize * 3, y:0},
-    {x:unitSize * 2, y:0},
-    {x:unitSize * 1, y:0},
-    {x:0, y:0}
-  ];
-  gameStart();
-}
-
-
+// // 11. uredujemo resetGame funkciju
+// function resetGame(){
+//   score = 0;
+//   xVelocity = unitSize;
+//   yVelocity = 0;
+//   snake = [
+//     {x:unitSize * 4, y:0},
+//     {x:unitSize * 3, y:0},
+//     {x:unitSize * 2, y:0},
+//     {x:unitSize * 1, y:0},
+//     {x:0, y:0}
+//   ];
+//   gameStart();
+// }
 
 
 
@@ -295,11 +524,6 @@ function resetGame(){
 //   cells.forEach(cell => cell.textContent = "");
 //   running = true;
 // }
-
-
-
-
-
 
 
 
